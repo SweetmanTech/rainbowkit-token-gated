@@ -10,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const { chains, provider, webSocketProvider } = configureChains(
   [
-    chain.polygon,
+    chain.mainnet,
     ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === 'true'
       ? [chain.polygonMumbai]
       : []),

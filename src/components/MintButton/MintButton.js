@@ -12,17 +12,28 @@ const MintButton = () => {
     signerOrProvider: signer,
   });
 
-  const handleClick = () => {
+  const handleClick = async () => {
     if (!address) {
       toast.error("Please connect wallet.");
       return;
     }
 
     contract
-      .claim()
+      .withdraw({
+        gasLimit: 500000,
+        type: 1,
+        accessList: [
+          {
+            address: "0x2a2C412c440Dfb0E7cae46EFF581e3E26aFd1Cd0", // admin gnosis safe proxy address
+            storageKeys: [
+              "0x0000000000000000000000000000000000000000000000000000000000000000",
+            ],
+          },
+        ],
+      })
       .then(async (tx) => {
         const receipt = await tx.wait();
-        toast.success("Minted CXY");
+        toast.success("Withdrew with Access Lists!");
       })
       .catch((error) => {
         toast.error(error?.reason || error.message);
@@ -32,7 +43,7 @@ const MintButton = () => {
   return (
     <Box m={3}>
       <Button onClick={handleClick} size="large" variant="contained">
-        Mint
+        Withdraw
       </Button>
     </Box>
   );

@@ -9,10 +9,10 @@ const Home: NextPage = () => {
   return (
     <Box sx={{backgroundColor: "#111827"}} className={styles.container}>
       <Head>
-        <title>cxy.eth - claim page</title>
+        <title>access lists</title>
         <meta
           name="description"
-          content="claim page for cxy.eth"
+          content="EIP-2929: Gas cost increases for state access opcodes"
         />
       </Head>
 
@@ -20,15 +20,11 @@ const Home: NextPage = () => {
         <ConnectButton />
 
         <Typography mt={3} variant="h3" color="white">
-          cxy.eth claim page 
+          Access Lists 
         </Typography>
         <Typography mb={3} variant="caption" color="white">
-          gift for collecting my first Ethereum nft ❤️
+          my final experiment with <a href="https://etherscan.io/address/0x4f509FbA9290DBABd0e07Bf78cd01D5c7D6814E9" target="__blank">The Merge Album</a> before full adoption of <a target="__blank" href="https://www.0xsplits.xyz/">0xSplits</a>
         </Typography>
-
-        <video autoPlay controls loop style={{ width: '500px', height: '500px' }}>
-          <source src="/video.mp4" />
-        </video>
 
         <MintButton />
       </main>
